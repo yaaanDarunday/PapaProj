@@ -37,7 +37,8 @@
             <div class="field"><label>Phone</label><div id="dphone" class="muted"></div></div>
             <div class="field"><label>Device</label><div id="ddevice" class="muted"></div></div>
             <div class="field"><label>Problem</label><div id="dproblem" class="muted"></div></div>
-            <div class="field"><label>Date</label><div id="ddate" class="muted"></div></div>
+            <div class="field"><label>Check-in</label><div id="dcheckin" class="muted"></div></div>
+            <div class="field"><label>Check-out</label><div id="dcheckout" class="muted"></div></div>
             <div class="field"><label>Notes</label><div id="dnotes" class="muted" style="white-space:pre-wrap"></div></div>
             <div class="field"><label>Amount Paid</label><div id="damount" class="muted"></div></div>
           </div>
@@ -68,11 +69,17 @@
             <label for="problem">Problem</label>
             <input id="problem" />
           </div>
-          <div class="row">
+        <div class="row">
             <div class="field" style="flex:1">
-              <label for="date">Date</label>
-              <input id="date" type="date" />
+                <label for="checkin">Check-in Date</label>
+                <input id="checkin" type="date" />
             </div>
+            <div class="field" style="flex:1">
+                <label for="checkout">Check-out Date</label>
+                <input id="checkout" type="date" />
+            </div>
+        </div>
+          <div class="row">
             <div class="field" style="flex:1">
               <label for="amount">Amount Paid</label>
               <input id="amount" type="number" min="0" />

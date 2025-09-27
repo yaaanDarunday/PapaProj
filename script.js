@@ -15,7 +15,16 @@ function renderList(filter = '') {
     if (data.length === 0) { listEl.innerHTML = '<div class="empty">No customers yet.</div>'; return; }
     data.forEach(c => {
         const item = document.createElement('div'); item.className = 'item';
-        item.innerHTML = `<div class="meta"><div class="name">${c.name}</div><div class="sub">${c.device} • ${c.problem}</div></div><div class="muted">${c.date || ''}</div>`;
+        item.innerHTML = `
+  <div class="meta">
+    <div class="name">${c.name}</div>
+    <div class="sub">${c.device} • ${c.problem}</div>
+  </div>
+  <div class="muted">
+    In: ${c.checkin || '-'} <br> Out: ${c.checkout || '-'}
+  </div>
+`;
+
         item.onclick = () => selectCustomer(c.id);
         listEl.appendChild(item);
     })
@@ -29,7 +38,8 @@ function selectCustomer(id) {
     document.getElementById('dphone').textContent = c.phone || '-';
     document.getElementById('ddevice').textContent = c.device || '-';
     document.getElementById('dproblem').textContent = c.problem || '-';
-    document.getElementById('ddate').textContent = c.date || '-';
+    document.getElementById('dcheckin').textContent = c.checkin || '-';
+    document.getElementById('dcheckout').textContent = c.checkout || '-';
     document.getElementById('dnotes').textContent = c.notes || '-';
     document.getElementById('damount').textContent = c.amount ? ('₱' + c.amount) : '-';
     document.getElementById('detailFields').style.display = 'block';
@@ -49,7 +59,8 @@ function openFormForEdit(id) {
     document.getElementById('phone').value = c.phone || '';
     document.getElementById('device').value = c.device || '';
     document.getElementById('problem').value = c.problem || '';
-    document.getElementById('date').value = c.date || '';
+    document.getElementById('checkin').value = c.checkin || '';
+    document.getElementById('checkout').value = c.checkout || '';
     document.getElementById('amount').value = c.amount || '';
     document.getElementById('notes').value = c.notes || '';
     editMode = true; selectedId = id;
@@ -63,7 +74,8 @@ document.getElementById('custForm').addEventListener('submit', function (e) {
         phone: document.getElementById('phone').value.trim(),
         device: document.getElementById('device').value.trim(),
         problem: document.getElementById('problem').value.trim(),
-        date: document.getElementById('date').value,
+        checkin: document.getElementById('checkin').value,
+        checkout: document.getElementById('checkout').value,
         amount: document.getElementById('amount').value ? Number(document.getElementById('amount').value) : 0,
         notes: document.getElementById('notes').value.trim()
     };
