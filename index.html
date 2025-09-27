@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Customer Notes</title>
+  <link rel="stylesheet" href="./styler.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="panel">
+      <div class="header">
+        <div class="title">Customers</div>
+        <div style="margin-left:auto" class="muted">Local Storage</div>
+      </div>
+      <div class="search">
+        <input id="search" placeholder="Search customer..." />
+        <button id="openAdd" class="add-btn">+ Add</button>
+      </div>
+      <div class="list" id="list"></div>
+    </aside>
+
+    <main class="right">
+      <section class="card" id="detailCard">
+        <div id="detailContent">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div id="dname" style="font-size:18px;font-weight:700">No customer selected</div>
+              <div id="dsub" class="muted">Select or add a customer to see details</div>
+            </div>
+            <div>
+              <button id="editBtn" class="btn small" disabled>Edit</button>
+              <button id="deleteBtn" class="btn small" disabled>Delete</button>
+            </div>
+          </div>
+          <div id="detailFields" style="margin-top:12px;display:none">
+            <div class="field"><label>Phone</label><div id="dphone" class="muted"></div></div>
+            <div class="field"><label>Device</label><div id="ddevice" class="muted"></div></div>
+            <div class="field"><label>Problem</label><div id="dproblem" class="muted"></div></div>
+            <div class="field"><label>Date</label><div id="ddate" class="muted"></div></div>
+            <div class="field"><label>Notes</label><div id="dnotes" class="muted" style="white-space:pre-wrap"></div></div>
+            <div class="field"><label>Amount Paid</label><div id="damount" class="muted"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="formCard">
+        <form id="custForm">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <div style="font-weight:700">Add / Edit Customer</div>
+            <div class="muted" id="formMode">Mode: Add</div>
+          </div>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" required />
+          </div>
+          <div class="row">
+            <div class="field" style="flex:1">
+              <label for="phone">Phone</label>
+              <input id="phone" />
+            </div>
+            <div class="field" style="flex:1">
+              <label for="device">Device</label>
+              <input id="device" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="problem">Problem</label>
+            <input id="problem" />
+          </div>
+          <div class="row">
+            <div class="field" style="flex:1">
+              <label for="date">Date</label>
+              <input id="date" type="date" />
+            </div>
+            <div class="field" style="flex:1">
+              <label for="amount">Amount Paid</label>
+              <input id="amount" type="number" min="0" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="notes">Notes</label>
+            <textarea id="notes"></textarea>
+          </div>
+          <div class="actions">
+            <button class="btn primary" type="submit">Save</button>
+            <button class="btn" type="button" id="cancel">Clear</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
