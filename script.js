@@ -37,6 +37,8 @@ function selectCustomer(id) {
     document.getElementById('dsub').textContent = c.device + ' • ' + c.problem;
     document.getElementById('dphone').textContent = c.phone || '-';
     document.getElementById('ddevice').textContent = c.device || '-';
+    document.getElementById('dmodel').textContent = c.model || '-';  
+    document.getElementById('dserial').textContent = c.serial || '-'; 
     document.getElementById('dproblem').textContent = c.problem || '-';
     document.getElementById('dcheckin').textContent = c.checkin || '-';
     document.getElementById('dcheckout').textContent = c.checkout || '-';
@@ -58,6 +60,8 @@ function openFormForEdit(id) {
     document.getElementById('name').value = c.name;
     document.getElementById('phone').value = c.phone || '';
     document.getElementById('device').value = c.device || '';
+    document.getElementById('model').value = c.model || '';     
+    document.getElementById('serial').value = c.serial || '';   
     document.getElementById('problem').value = c.problem || '';
     document.getElementById('checkin').value = c.checkin || '';
     document.getElementById('checkout').value = c.checkout || '';
@@ -73,6 +77,8 @@ document.getElementById('custForm').addEventListener('submit', function (e) {
         name: document.getElementById('name').value.trim(),
         phone: document.getElementById('phone').value.trim(),
         device: document.getElementById('device').value.trim(),
+        model: document.getElementById('model').value.trim(),    
+    serial: document.getElementById('serial').value.trim(),   
         problem: document.getElementById('problem').value.trim(),
         checkin: document.getElementById('checkin').value,
         checkout: document.getElementById('checkout').value,
